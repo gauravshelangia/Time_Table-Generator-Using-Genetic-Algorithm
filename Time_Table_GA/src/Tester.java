@@ -1,55 +1,45 @@
-import java.lang.*;
+/*
+ * Class of Time-Table IIITV
+ */
 import java.util.*;
+import java.text.ParseException;
 
 
-@SuppressWarnings("unused")
 public class Tester {
-	public static void main (String args[]){
+
+	/**
+	 * @param args
+	 * @throws Exception 
+	 */
+	public static void main(String[] args) throws Exception {
 		
-		//To input the Information
-		/*InputData info = new InputData();
-		info.Room();
-		info.Day();
-		info.TimeSlot();
-		info.Courses();
-		info.Faculty();
-		*/
+
 		
-		// Take input
-		Input INPUT = new Input();
-		INPUT.takeinput();
+		int [][][] A=new int [3][4][6];
+		System.out.println(" rows : "+A.length + "Col : "+A[0].length+ "roof : "+A[0][0].length);
 		
 		
 		
-		// To generate the initial population
-		@SuppressWarnings("resource")
-		Scanner GP = new Scanner(System.in);
-		int Psize;
-		System.out.println("Enter the population size");
-		Psize = GP.nextInt();
-		generatechromosome gench = new generatechromosome(INPUT, Psize);
-		gench.generate();
-		gench.displaychromosome();
 		
-		// To calculate the fitness value of population
-		FitnessCalculator fit = new FitnessCalculator(gench,INPUT);
-		fit.fitnessvalue();
-	
-		// Mutator class operation
-		Mutator mut = new Mutator(gench,INPUT);
-		float P;
-		int [][] AM;
-		System.out.println("enter the mutation probability");
-		P = GP.nextFloat();
-		System.out.println("the mutation probability" +P );
-//
-//		while(fit.){
-//			
-//		}
-//		mut.mutate(gench.population.get(1).POP, P);
-//		fit.gench.show(AM);
 		
+		// TODO Auto-generated method stub
+		InputData INPUT = new InputData();
+		INPUT.setsapce();
+		INPUT.setday();
+		INPUT.sethours();
+		INPUT.setcourse();
+		INPUT.setlecturer();
+		INPUT.setstudent();
+		INPUT.settimeslots();
+		INPUT.setmesstiming();
+		int tt = INPUT.timeslot;
+		System.out.println("Value of tt is  "+tt);
+		
+		EnterEvents EV = new EnterEvents(INPUT);
+		EV.generateslotseq();
+		EV.generatespaceseq();
+		EV.setcourseevent();
 		
 	}
-
+	
 }
